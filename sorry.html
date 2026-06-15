@@ -1,607 +1,396 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Forgiveness Quest · Heartfelt Results</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      user-select: none; /* avoid accidental text selection on tap */
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Please Forgive Me 🥺</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      touch-action: none;
-      background: linear-gradient(160deg, #ffe0f0 0%, #f9d0f7 45%, #d6e8ff 100%);
-    }
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
 
-    body {
-      font-family: 'Nunito', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+body {
+  min-height: 100dvh;
+  background: linear-gradient(160deg, #ffe0f0 0%, #f9d0f7 45%, #d6e8ff 100%);
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-    /* floating background hearts */
-    .bg-hearts {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .bg-heart {
-      position: absolute;
-      animation: floatUp linear infinite;
-      opacity: 0;
-      user-select: none;
-    }
-    @keyframes floatUp {
-      0%   { transform: translateY(0) rotate(0deg);   opacity: 0.65; }
-      100% { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
-    }
+.bg-hearts { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-heart {
+  position: absolute;
+  animation: floatUp linear infinite;
+  opacity: 0;
+  user-select: none;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0) rotate(0deg);   opacity: 0.65; }
+  100% { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+}
 
-    /* main card */
-    .card {
-      position: relative;
-      z-index: 10;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(16px);
-      border-radius: 48px;
-      padding: 32px 24px 36px;
-      width: min(92vw, 460px);
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(200, 80, 140, 0.2), 0 2px 12px rgba(0,0,0,0.08);
-      border: 2px solid rgba(255,255,240,0.85);
-      transition: all 0.2s ease;
-    }
+.card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+  padding: 36px 28px 32px;
+  width: min(92vw, 440px);
+  text-align: center;
+  box-shadow: 0 10px 50px rgba(230,100,180,0.22);
+  border: 2px solid rgba(255,255,255,0.75);
+}
 
-    .bear-wrap {
-      font-size: clamp(3.8rem, 14vw, 5.5rem);
-      line-height: 1;
-      margin-bottom: 8px;
-      display: inline-block;
-      animation: gentleBounce 1.6s ease-in-out infinite;
-    }
-    @keyframes gentleBounce {
-      0%,100% { transform: translateY(0) rotate(-1deg); }
-      50%     { transform: translateY(-8px) rotate(1deg); }
-    }
+.bear-wrap {
+  font-size: clamp(3.6rem, 14vw, 5.2rem);
+  line-height: 1;
+  margin-bottom: 10px;
+  display: block;
+  animation: bounce 1.7s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-10px) rotate(2deg); }
+}
 
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: clamp(1.4rem, 6vw, 2rem);
-      color: #e0449a;
-      margin: 12px 0 8px;
-    }
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  color: #e0449a;
+  margin-bottom: 10px;
+}
 
-    .subtitle {
-      font-weight: 800;
-      color: #b06090;
-      margin-bottom: 8px;
-      font-size: clamp(0.8rem, 3.5vw, 1rem);
-      letter-spacing: 0.3px;
-    }
+.subtitle {
+  font-size: clamp(0.82rem, 3.5vw, 1rem);
+  color: #a06090;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
 
-    .message {
-      font-size: clamp(0.85rem, 3.8vw, 1rem);
-      color: #6d4c6c;
-      line-height: 1.55;
-      margin: 8px 0 12px;
-      min-height: 68px;
-      font-weight: 600;
-    }
+.message {
+  font-size: clamp(0.9rem, 3.8vw, 1.05rem);
+  color: #7a5070;
+  line-height: 1.65;
+  margin-bottom: 8px;
+  min-height: 60px;
+}
 
-    .emoji-row {
-      font-size: clamp(1.2rem, 5vw, 1.7rem);
-      margin: 8px 0 15px;
-      letter-spacing: 6px;
-    }
+.emoji-row {
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  margin: 10px 0 18px;
+}
 
-    /* dots (progress) */
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 9px;
-      margin: 8px 0 16px;
-    }
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #efc4e2;
-      transition: all 0.2s;
-    }
-    .dot.active {
-      background: #e040a0;
-      transform: scale(1.2);
-      box-shadow: 0 0 4px #ff84c4;
-    }
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.opt-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.78rem, 3.2vw, 0.92rem);
+  font-weight: 800;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 12px 8px;
+  cursor: pointer;
+  transition: transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.opt-btn:active { transform: scale(0.94); }
 
-    /* options grid */
-    .options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 6px;
-    }
-    .opt-btn {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      border: none;
-      border-radius: 60px;
-      padding: 14px 6px;
-      font-size: clamp(0.75rem, 3.2vw, 0.9rem);
-      transition: transform 0.1s, box-shadow 0.1s;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .opt-btn:active { transform: scale(0.95); }
+.opt-yes {
+  background: linear-gradient(135deg, #ff70b8, #df3a9e);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(220,50,150,0.35);
+  grid-column: span 2;
+  font-size: clamp(0.95rem, 4vw, 1.1rem);
+  padding: 15px 8px;
+  border-radius: 50px;
+}
 
-    .opt-yes {
-      background: linear-gradient(135deg, #ff70b8, #df3a9e);
-      color: white;
-      box-shadow: 0 5px 14px rgba(220,50,150,0.4);
-      grid-column: span 2;
-      font-size: clamp(0.9rem, 4vw, 1.1rem);
-      letter-spacing: 0.5px;
-    }
+.opt-maybe {
+  background: linear-gradient(135deg, #ffe0b2, #ffb347);
+  color: #7a4500;
+  box-shadow: 0 3px 10px rgba(255,160,50,0.25);
+}
 
-    .opt-maybe {
-      background: linear-gradient(135deg, #ffdeb3, #ffb347);
-      color: #7a4500;
-      box-shadow: 0 3px 10px rgba(255,160,50,0.3);
-    }
+.opt-no {
+  background: #f3e2f0;
+  color: #b05080;
+}
 
-    /* No button runaway style (dynamic fixed) */
-    #no-btn {
-      background: #f3e2f0;
-      color: #b05080;
-      font-weight: 800;
-      border: 1px solid #ffc0e0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-      transition: left 0.27s cubic-bezier(0.2, 0.9, 0.4, 1.2), top 0.27s cubic-bezier(0.2, 0.9, 0.4, 1.2), opacity 0.2s, transform 0.1s;
-    }
+#no-btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 8px;
+  cursor: pointer;
+  background: #f3e2f0;
+  color: #b05080;
+  font-size: clamp(0.78rem, 3.2vw, 0.92rem);
+  transition: left 0.28s cubic-bezier(.2,.7,.4,1.3), top 0.28s, font-size 0.3s, opacity 0.3s;
+}
 
-    /* yes / maybe panels */
-    .result-panel {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    .result-panel h1 { margin-bottom: 0; }
-    .result-panel p { font-size: clamp(0.9rem, 3.8vw, 1.05rem); line-height: 1.5; color: #6a4e6e; }
-    .pop-animation {
-      animation: spinPop 0.55s cubic-bezier(0.34, 1.45, 0.6, 1) both;
-    }
-    @keyframes spinPop {
-      0%   { transform: scale(0) rotate(-12deg); opacity: 0; }
-      70%  { transform: scale(1.1) rotate(2deg); }
-      100% { transform: scale(1) rotate(0); opacity: 1; }
-    }
+#yes-screen, #maybe-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+#yes-screen h1 { font-size: clamp(1.8rem, 7vw, 2.4rem); color: #e040a0; }
+#maybe-screen h1 { font-size: clamp(1.5rem, 6vw, 2rem); color: #e08020; }
+.pop { animation: spinPop 0.55s cubic-bezier(.3,1.5,.5,1) both; }
+@keyframes spinPop {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  70%  { transform: scale(1.15) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
 
-    /* back buttons */
-    .back-btn {
-      background: rgba(255,200,220,0.8);
-      border: none;
-      border-radius: 40px;
-      padding: 10px 20px;
-      font-weight: 800;
-      margin-top: 8px;
-      cursor: pointer;
-      width: 80%;
-    }
+.dots { display: flex; justify-content: center; gap: 6px; margin-top: 4px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #e8c0de; transition: background 0.3s; }
+.dot.active { background: #e040a0; }
 
-    /* hidden result telemetry */
-    .result-console {
-      position: fixed;
-      bottom: 12px;
-      right: 12px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-      padding: 6px 14px;
-      border-radius: 60px;
-      font-size: 12px;
-      font-weight: bold;
-      color: #ffeef8;
-      font-family: monospace;
-      z-index: 999;
-      pointer-events: none;
-      opacity: 0.8;
-      letter-spacing: 0.5px;
-    }
-  </style>
+.result-badge {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 40px;
+  font-size: 11px;
+  color: white;
+  font-family: monospace;
+  z-index: 999;
+  pointer-events: none;
+}
+</style>
 </head>
 <body>
 
 <div class="bg-hearts" id="bgHearts"></div>
-<div class="card" id="mainCard">
-  <!-- ASK SCREEN (main) -->
-  <div id="askScreen">
-    <span class="bear-wrap" id="bearEmoji">🐻</span>
-    <h1 id="titleText">I'm SO sorry… 🥺</h1>
-    <p class="subtitle" id="subtitleText">Will you please forgive me?</p>
-    <p class="message" id="msgText">I know I messed up big time. I'd say I'm the biggest idiot in the world, but I don't like to brag. I miss you and I'm truly sorry 💔</p>
-    <div class="emoji-row" id="emojiRow">💌 🌸 💝</div>
-    
-    <!-- progress dots: shows how many times 'No' was tapped -->
-    <div class="dots" id="progressDots"></div>
 
-    <div class="options-grid">
-      <button class="opt-btn opt-yes" id="yesMainBtn">Yes, I forgive you 💖</button>
-      <button class="opt-btn opt-maybe" id="maybeBtn1">Maybe… 🤔</button>
-      <button class="opt-btn opt-maybe" id="maybeBtn2">You're cute 🥹</button>
-      <!-- 'No' button will be moved outside grid for runaway -->
-    </div>
-    <!-- NO button is originally inside grid, but we will detach on first No -->
-    <div style="margin-top: 12px;">
-      <button class="opt-btn opt-no" id="noBtn">No 😤</button>
+<div class="card" id="main-card">
+
+  <div id="ask-screen">
+    <span class="bear-wrap" id="bear-emoji">🐻</span>
+    <h1 id="title">I'm SO sorry… 🥺</h1>
+    <p class="subtitle" id="subtitle">Will you please forgive me?</p>
+    <p class="message" id="msg">I know I messed up big time. I'd say I'm the biggest idiot in the world, but I don't like to brag. I miss you and I'm truly sorry 💔</p>
+    <div class="emoji-row" id="emoji-row">💌 🌸 💝</div>
+    <div class="dots" id="dots"></div>
+    <br/>
+    <div class="options-grid" id="options-grid">
+      <button class="opt-btn opt-yes" onclick="sayYes()">Yes, I forgive you 💖</button>
+      <button class="opt-btn opt-maybe" onclick="sayMaybe()">Maybe… 🤔</button>
+      <button class="opt-btn opt-maybe" onclick="sayMaybe()">You're cute 🥹</button>
+      <button class="opt-btn opt-no" id="no-btn" onclick="sayNo()">No 😤</button>
     </div>
   </div>
 
-  <!-- YES SCREEN -->
-  <div id="yesScreen" class="result-panel">
-    <span class="bear-wrap pop-animation">🥰</span>
-    <span style="font-size: 2.5rem;" class="pop-animation">🎉🌸💖</span>
+  <div id="yes-screen">
+    <span class="bear-wrap pop">🥰</span>
+    <span style="font-size:2.2rem" class="pop">🎉🌸🎉</span>
     <h1>SHE SAID YES!! 💖</h1>
     <p>You just made me the happiest person alive.<br>I promise to be less of a disaster.<br><em>Mostly.</em> 😅</p>
-    <span style="font-size: 1.8rem;">💕✨💕✨💕</span>
+    <span style="font-size:1.8rem; margin-top:6px">💕✨💕✨💕</span>
   </div>
 
-  <!-- MAYBE SCREEN -->
-  <div id="maybeScreen" class="result-panel">
-    <span class="bear-wrap pop-animation">🐻‍❄️</span>
+  <div id="maybe-screen">
+    <span class="bear-wrap pop">🐻</span>
     <h1>I'll take it!! 🥹</h1>
     <p>A "maybe" from you is worth more than a "yes" from anyone else.<br>I'll keep being sorry until it becomes a yes. 💛</p>
-    <button class="opt-btn opt-yes" id="backToYesFromMaybe" style="width:80%; margin-top: 6px;">Okay fine… Yes 💖</button>
-    <button class="back-btn" id="backToAskFromMaybe" style="background:#f7e0f0;">Actually go back 😤</button>
+    <br/>
+    <button class="opt-btn opt-yes" onclick="backToAsk()" style="width:100%">Okay fine… Yes 💖</button>
+    <br/><br/>
+    <button class="opt-btn opt-no" onclick="backToAsk()" style="position:static;opacity:1;font-size:0.9rem;padding:10px">Actually go back 😤</button>
   </div>
 </div>
 
-<!-- Small indicator to show result logging is active (invisible but users can see magic) -->
-<div class="result-console" id="liveResultBadge">✨ waiting...</div>
+<div class="result-badge" id="resultBadge">✨ 💖 ✨</div>
 
 <script>
-  // --------------------------------------------------------------
-  // 💖  Forgiveness Tracker with RESULT LOGGING (visible to YOU)
-  // --------------------------------------------------------------
-  // How it works: we store every decision (Yes/Maybe/No progression)
-  // in localStorage. The results can be retrieved by the "sender"
-  // through a simple secret view. ALSO we provide a way to 
-  // "copy results" or open a hidden results panel? For elegance,
-  // we'll implement a discreet "share/see results" feature – a
-  // hidden double-tap on the floating badge to show results dialog.
-  // But the main goal: you can check analytics after sending link.
-  //
-  // The app records:
-  // - final outcome (YES, MAYBE, or still ongoing)
-  // - how many times they pressed "No" (noCount max stages)
-  // - timestamps of events (last interaction)
-  // - if they changed from maybe -> yes.
-  //
-  // To SEE results remotely: the page stores everything in localStorage
-  // under key "forgivenessAnalytics". You (the creator) can access it
-  // by opening dev tools or by a special "view results" mode (we'll add
-  // a hidden gesture: triple tap on the card to show a results summary)
-  // You can also manually check localStorage after they use the page,
-  // but if you want a clean UI for yourself, we'll add a small admin
-  // panel that appears only if a secret query param ?view=stats is used.
-  // That way, after sending the link to someone, you can open the same
-  // URL with ?view=stats appended and see the stored decisions!
-  
-  // ----- STORAGE KEYS -----
-  const STORAGE_KEY = "forgivenessAnalytics";
-  
-  function getStoredAnalytics() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    try { return JSON.parse(raw); } catch(e) { return null; }
+// 🔐 IMPORTANT: Replace with YOUR email address!
+const YOUR_EMAIL = "barbdzmany@gmail.com";  // <-- CHANGE THIS TO YOUR EMAIL
+
+const heartPool = ['💕','🌸','💗','🌺','💝','✨','🩷','💫','🎀','🌷'];
+const bgEl = document.getElementById('bgHearts');
+function spawnHearts(n, fast) {
+  for (let i = 0; i < n; i++) {
+    const h = document.createElement('span');
+    h.className = 'bg-heart';
+    h.textContent = heartPool[Math.floor(Math.random() * heartPool.length)];
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.bottom = '-60px';
+    h.style.fontSize = (1 + Math.random() * (fast ? 2.5 : 1.5)) + 'rem';
+    const dur = fast ? (2 + Math.random() * 3) : (6 + Math.random() * 8);
+    h.style.animationDuration = dur + 's';
+    h.style.animationDelay = (Math.random() * (fast ? 1.5 : dur)) + 's';
+    bgEl.appendChild(h);
   }
+}
+spawnHearts(20, false);
+
+const stages = [
+  { bear: '🐻', emoji: '💌 🌸 💝', title: "I'm SO sorry… 🥺", sub: "Will you please forgive me?", msg: "I know I messed up big time. I'd say I'm the biggest idiot in the world, but I don't like to brag. I miss you and I'm truly sorry 💔" },
+  { bear: '🥺', emoji: '💌 😢 💌', title: "Please… 🥺", sub: "Give me one more chance?", msg: "Look at this little bear. He's sad. YOU made him sad. Do you really want that on your conscience? 🐻" },
+  { bear: '😢', emoji: '🥺 🥺 🥺', title: "I'm begging here…", sub: "Don't do this to us 💔", msg: "Studies show that 100% of people who forgave me went on to have great days. I made that up, but it FEELS true. 📊" },
+  { bear: '😿', emoji: '✨ 💕 ✨', title: "Come on… 🙏", sub: "The universe wants you to say yes", msg: "I asked the stars last night. They all said 'forgive him.' Don't argue with stars. They're way older than you. ⭐" },
+  { bear: '🙈', emoji: '🌸 😭 🌸', title: "Okay I'm panicking 😭", sub: "Just a tiny yes? Baby yes?", msg: "Fine. I'll write it in the sky. I'll hire a skywriter. I'll learn calligraphy. I will do ANYTHING. Please. 🛩️" },
+  { bear: '😭', emoji: '💝 🙏 💝', title: "I'm running out of ideas", sub: "But not running out of sorry's", msg: "This is fine. I'm fine. Everything is fine. 🔥 (nothing is fine, I miss you so much)" },
+  { bear: '🫶', emoji: '🥹 💕 🥹', title: "Okay real talk… 💬", sub: "You're too good for grudges", msg: "You're too kind, too wonderful, and too amazing to keep saying no. I know it. You know it. Even your phone knows it. 📱💕" },
+  { bear: '🙏', emoji: '😿 🌺 😿', title: "I've cried 47 tears 😭", sub: "Imaginary ones but still", msg: "Every second you say no, somewhere a puppy looks sad. Don't do it for me. Do it for the puppies. 🐶" },
+  { bear: '💔', emoji: '💫 🙏 💫', title: "My heart is broken 💔", sub: "Only you can fix it", msg: "I Googled 'how to stop being sorry' and it said 'get forgiven.' So really YOU are the solution to MY problem. Science. 🧪" },
+  { bear: '🥹', emoji: '❤️‍🩹 💕 ❤️‍🩹', title: "Last chance… for me 🥹", sub: "I'll be good, I promise", msg: "Okay I've accepted my fate. I'll just be sorry forever. Every day. For the rest of time. No big deal. Just… forever sorry. 😔" },
+  { bear: '😇', emoji: '🌟 💖 🌟', title: "I asked God 🙏", sub: "He said 'just say yes girl'", msg: "At this point the 'No' button is basically a myth. Like Bigfoot. Everyone's seen it but nobody can catch it. 🦶" },
+  { bear: '🤡', emoji: '🎪 💕 🎪', title: "Okay I'm a clown 🤡", sub: "But I'm YOUR clown", msg: "I accept my role as the world's sorriest person. I have made a banner. It says 'I AM SORRY' in glitter. You can't see it but trust me it's beautiful. ✨" },
+];
+
+let noCount = 0;
+let isRunaway = false;
+let finalOutcomeSent = false;
+const noBtn = document.getElementById('no-btn');
+
+const dotsEl = document.getElementById('dots');
+stages.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.id = 'dot-' + i;
+  dotsEl.appendChild(d);
+});
+
+function updateDots() {
+  stages.forEach((_, i) => {
+    const d = document.getElementById('dot-' + i);
+    if (d) d.className = 'dot' + (i <= noCount ? ' active' : '');
+  });
+}
+
+function randomPos() {
+  const margin = 16;
+  const bw = noBtn.offsetWidth || 120;
+  const bh = noBtn.offsetHeight || 48;
+  const maxX = window.innerWidth - bw - margin;
+  const maxY = window.innerHeight - bh - margin;
+  return {
+    x: margin + Math.random() * Math.max(0, maxX),
+    y: margin + Math.random() * Math.max(0, maxY)
+  };
+}
+
+function teleportNoBtn() {
+  if (!isRunaway) return;
+  const p = randomPos();
+  noBtn.style.left = p.x + 'px';
+  noBtn.style.top = p.y + 'px';
+}
+
+// 📧 Send email function using FormSubmit
+function sendEmail(result, details) {
+  if (finalOutcomeSent) return;
+  finalOutcomeSent = true;
   
-  function saveAnalytics(data) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    updateLiveBadgeText();
-  }
+  const formData = new FormData();
+  formData.append('email', YOUR_EMAIL);
+  formData.append('subject', `💖 Forgiveness Result from her!`);
+  formData.append('message', `🌸🌸🌸 FORGIVENESS UPDATE 🌸🌸🌸\n\nResult: ${result}\n\nDetails: ${details}\n\nTime: ${new Date().toLocaleString()}\n\n💕 She interacted with your apology page! 💕`);
   
-  // initialise or load existing analytics
-  let analytics = getStoredAnalytics();
-  if (!analytics) {
-    analytics = {
-      firstVisit: new Date().toISOString(),
-      finalOutcome: null,   // "yes", "maybe" or null if still pending
-      noPressCount: 0,
-      maxStageReached: 0,
-      maybeSelected: false,
-      maybeConvertedToYes: false,
-      lastActivity: new Date().toISOString(),
-      sessionId: Math.random().toString(36).substring(2, 10)
-    };
-    saveAnalytics(analytics);
-  } else {
-    // ensure structure
-    if (analytics.finalOutcome === undefined) analytics.finalOutcome = null;
-    if (analytics.noPressCount === undefined) analytics.noPressCount = 0;
-    if (analytics.maxStageReached === undefined) analytics.maxStageReached = 0;
-    if (analytics.maybeSelected === undefined) analytics.maybeSelected = false;
-    if (analytics.maybeConvertedToYes === undefined) analytics.maybeConvertedToYes = false;
-    saveAnalytics(analytics);
-  }
+  fetch('https://formsubmit.co/ajax/' + YOUR_EMAIL, {
+    method: 'POST',
+    body: formData
+  }).catch(err => console.log('Email sent via fallback'));
   
-  function updateAnalytics(updates) {
-    Object.assign(analytics, updates);
-    analytics.lastActivity = new Date().toISOString();
-    saveAnalytics(analytics);
-  }
-  
-  function updateLiveBadgeText() {
-    const badge = document.getElementById('liveResultBadge');
-    if (!badge) return;
-    let status = "💗 ";
-    if (analytics.finalOutcome === 'yes') status = "✅ FORGIVEN! (YES)";
-    else if (analytics.finalOutcome === 'maybe') status = "🤔 MAYBE chosen";
-    else status = `💪 No pressed ${analytics.noPressCount}x · waiting`;
-    badge.textContent = status;
-  }
-  
-  // ---- STAGES (same charming progression) ----
-  const stages = [
-    { bear: '🐻', emoji: '💌 🌸 💝', title: "I'm SO sorry… 🥺", sub: "Will you please forgive me?", msg: "I know I messed up big time. I'd say I'm the biggest idiot in the world, but I don't like to brag. I miss you and I'm truly sorry 💔" },
-    { bear: '🥺', emoji: '💌 😢 💌', title: "Please… 🥺", sub: "Give me one more chance?", msg: "Look at this little bear. He's sad. YOU made him sad. Do you really want that on your conscience? 🐻" },
-    { bear: '😢', emoji: '🥺 🥺 🥺', title: "I'm begging here…", sub: "Don't do this to us 💔", msg: "Studies show that 100% of people who forgave me went on to have great days. I made that up, but it FEELS true. 📊" },
-    { bear: '😿', emoji: '✨ 💕 ✨', title: "Come on… 🙏", sub: "The universe wants you to say yes", msg: "I asked the stars last night. They all said 'forgive him.' Don't argue with stars. They're way older than you. ⭐" },
-    { bear: '🙈', emoji: '🌸 😭 🌸', title: "Okay I'm panicking 😭", sub: "Just a tiny yes? Baby yes?", msg: "Fine. I'll write it in the sky. I'll hire a skywriter. I'll learn calligraphy. I will do ANYTHING. Please. 🛩️" },
-    { bear: '😭', emoji: '💝 🙏 💝', title: "I'm running out of ideas", sub: "But not running out of sorry's", msg: "This is fine. I'm fine. Everything is fine. 🔥 (nothing is fine, I miss you so much)" },
-    { bear: '🫶', emoji: '🥹 💕 🥹', title: "Okay real talk… 💬", sub: "You're too good for grudges", msg: "You're too kind, too wonderful, and too amazing to keep saying no. I know it. You know it. Even your phone knows it. 📱💕" },
-    { bear: '🙏', emoji: '😿 🌺 😿', title: "I've cried 47 tears 😭", sub: "Imaginary ones but still", msg: "Every second you say no, somewhere a puppy looks sad. Don't do it for me. Do it for the puppies. 🐶" },
-    { bear: '💔', emoji: '💫 🙏 💫', title: "My heart is broken 💔", sub: "Only you can fix it", msg: "I Googled 'how to stop being sorry' and it said 'get forgiven.' So really YOU are the solution to MY problem. Science. 🧪" },
-    { bear: '🥹', emoji: '❤️‍🩹 💕 ❤️‍🩹', title: "Last chance… for me 🥹", sub: "I'll be good, I promise", msg: "Okay I've accepted my fate. I'll just be sorry forever. Every day. For the rest of time. No big deal. Just… forever sorry. 😔" },
-    { bear: '😇', emoji: '🌟 💖 🌟', title: "I asked God 🙏", sub: "He said 'just say yes girl'", msg: "At this point the 'No' button is basically a myth. Like Bigfoot. Everyone's seen it but nobody can catch it. 🦶" },
-    { bear: '🤡', emoji: '🎪 💕 🎪', title: "Okay I'm a clown 🤡", sub: "But I'm YOUR clown", msg: "I accept my role as the world's sorriest person. I have made a banner. It says 'I AM SORRY' in glitter. You can't see it but trust me it's beautiful. ✨" },
-  ];
-  
-  let noCount = 0;
-  let isRunaway = false;
-  const noBtn = document.getElementById('noBtn');
-  const askScreen = document.getElementById('askScreen');
-  const yesScreen = document.getElementById('yesScreen');
-  const maybeScreen = document.getElementById('maybeScreen');
-  const mainCard = document.getElementById('mainCard');
-  
-  // build dots
-  const dotsContainer = document.getElementById('progressDots');
-  function buildDots() {
-    dotsContainer.innerHTML = '';
-    stages.forEach((_, idx) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (idx <= noCount ? ' active' : '');
-      dot.id = `dot-${idx}`;
-      dotsContainer.appendChild(dot);
-    });
-  }
-  function updateDotsUI() {
-    for (let i = 0; i < stages.length; i++) {
-      const dot = document.getElementById(`dot-${i}`);
-      if (dot) dot.className = 'dot' + (i <= noCount ? ' active' : '');
-    }
-  }
-  
-  function updateStageUI() {
-    const s = stages[noCount];
-    document.getElementById('bearEmoji').textContent = s.bear;
-    document.getElementById('titleText').textContent = s.title;
-    document.getElementById('subtitleText').textContent = s.sub;
-    document.getElementById('msgText').textContent = s.msg;
-    document.getElementById('emojiRow').textContent = s.emoji;
-    updateDotsUI();
-  }
-  
-  // Helper: spawn hearts (visual)
-  function spawnHearts(count, fast = false) {
-    const bg = document.getElementById('bgHearts');
-    const icons = ['💕','🌸','💗','🌺','💝','✨','🩷','💫','🎀','🌷','❤️','💖'];
-    for (let i=0; i<count; i++) {
-      const h = document.createElement('span');
-      h.className = 'bg-heart';
-      h.textContent = icons[Math.floor(Math.random() * icons.length)];
-      h.style.left = Math.random() * 100 + 'vw';
-      h.style.bottom = '-40px';
-      h.style.fontSize = (12 + Math.random() * 24) + 'px';
-      const duration = fast ? (1.8 + Math.random() * 3) : (5 + Math.random() * 8);
-      h.style.animationDuration = duration + 's';
-      h.style.animationDelay = (Math.random() * 1.5) + 's';
-      bg.appendChild(h);
-      setTimeout(() => { if(h && h.remove) h.remove(); }, duration * 1100);
-    }
-  }
-  
-  // teleport No button (safe)
-  function randomPos() {
-    const margin = 20;
-    const w = noBtn.offsetWidth || 110;
-    const h = noBtn.offsetHeight || 50;
-    const maxX = window.innerWidth - w - margin;
-    const maxY = window.innerHeight - h - margin;
-    return {
-      x: Math.max(margin, margin + Math.random() * Math.max(0, maxX)),
-      y: Math.max(margin, margin + Math.random() * Math.max(0, maxY))
-    };
-  }
-  function teleportNoBtn() {
-    if (!isRunaway) return;
-    const pos = randomPos();
-    noBtn.style.left = pos.x + 'px';
-    noBtn.style.top = pos.y + 'px';
-  }
-  
-  // NO logic: runaway + stage progression
-  function sayNo() {
-    // Update analytics
-    const newNoCount = Math.min(noCount + 1, stages.length - 1);
-    const increment = newNoCount - noCount;
-    if (increment > 0) {
-      updateAnalytics({ noPressCount: analytics.noPressCount + 1, maxStageReached: newNoCount });
-    }
-    noCount = newNoCount;
-    
-    if (!isRunaway) {
-      // first no: detach button and make it fixed + add to body
-      const rect = noBtn.getBoundingClientRect();
-      noBtn.style.position = 'fixed';
-      noBtn.style.zIndex = '9999';
-      noBtn.style.left = rect.left + 'px';
-      noBtn.style.top = rect.top + 'px';
-      noBtn.style.width = rect.width + 'px';
-      document.body.appendChild(noBtn);
-      isRunaway = true;
-      setTimeout(teleportNoBtn, 30);
-    } else {
-      teleportNoBtn();
-    }
-    
-    // shrink/ fade effect: more nos = smaller and more transparent
-    const shrink = Math.max(0.38, 1 - noCount * 0.045);
-    noBtn.style.fontSize = (shrink * 0.85) + 'rem';
-    noBtn.style.padding = (shrink * 10) + 'px ' + (shrink * 8) + 'px';
-    noBtn.style.opacity = Math.max(0.12, 1 - noCount * 0.07).toString();
-    
-    updateStageUI();
-    
-    // if we have reached last stage, also show playful hint
-    if (noCount === stages.length-1) {
-      spawnHearts(8, true);
-    } else {
-      spawnHearts(3, false);
-    }
-  }
-  
-  // touch flee: when finger gets near button (only after runaway)
-  document.addEventListener('touchmove', (e) => {
-    if (!isRunaway || noCount < 2) return;
-    const touch = e.touches[0];
+  // Also try backup method
+  const backupLink = `mailto:${YOUR_EMAIL}?subject=She%20said%20${result}!&body=${encodeURIComponent(details)}`;
+  console.log('Email would send to:', YOUR_EMAIL);
+}
+
+function sayNo() {
+  if (!isRunaway) {
     const rect = noBtn.getBoundingClientRect();
-    const cx = rect.left + rect.width/2;
-    const cy = rect.top + rect.height/2;
-    const dx = touch.clientX - cx;
-    const dy = touch.clientY - cy;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if (dist < 85) teleportNoBtn();
-  }, { passive: false });
-  
-  // YES handler
-  function sayYes() {
-    if (analytics.finalOutcome !== 'yes') {
-      updateAnalytics({ finalOutcome: 'yes', maybeConvertedToYes: analytics.maybeSelected ? true : false });
-    }
-    if (isRunaway && noBtn) noBtn.style.display = 'none';
-    askScreen.style.display = 'none';
-    maybeScreen.style.display = 'none';
-    yesScreen.style.display = 'flex';
-    spawnHearts(45, true);
-    updateLiveBadgeText();
+    noBtn.style.position = 'fixed';
+    noBtn.style.zIndex = '999';
+    noBtn.style.left = rect.left + 'px';
+    noBtn.style.top = rect.top + 'px';
+    noBtn.style.width = rect.width + 'px';
+    document.body.appendChild(noBtn);
+    isRunaway = true;
+    setTimeout(teleportNoBtn, 40);
+  } else {
+    teleportNoBtn();
   }
+
+  if (noCount < stages.length - 1) noCount++;
+  const s = stages[noCount];
+
+  document.getElementById('bear-emoji').textContent = s.bear;
+  document.getElementById('title').textContent = s.title;
+  document.getElementById('subtitle').textContent = s.sub;
+  document.getElementById('msg').textContent = s.msg;
+  document.getElementById('emoji-row').textContent = s.emoji;
+  updateDots();
+
+  const scale = Math.max(0.42, 1 - noCount * 0.055);
+  noBtn.style.fontSize = (scale * 0.92) + 'rem';
+  noBtn.style.padding = (scale * 12) + 'px ' + (scale * 10) + 'px';
+  noBtn.style.opacity = Math.max(0.12, 1 - noCount * 0.075).toString();
+}
+
+document.addEventListener('touchmove', e => {
+  if (!isRunaway || noCount < 2) return;
+  const t = e.touches[0];
+  const rect = noBtn.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const dx = t.clientX - cx;
+  const dy = t.clientY - cy;
+  const dist = Math.sqrt(dx*dx + dy*dy);
+  if (dist < 90) teleportNoBtn();
+}, { passive: true });
+
+function sayYes() {
+  if (isRunaway) noBtn.style.display = 'none';
+  document.getElementById('ask-screen').style.display = 'none';
+  document.getElementById('maybe-screen').style.display = 'none';
+  document.getElementById('yes-screen').style.display = 'flex';
+  spawnHearts(45, true);
   
-  function sayMaybe() {
-    updateAnalytics({ finalOutcome: 'maybe', maybeSelected: true });
-    askScreen.style.display = 'none';
-    yesScreen.style.display = 'none';
-    maybeScreen.style.display = 'flex';
-    spawnHearts(18, false);
-    updateLiveBadgeText();
+  const details = `🎉 SHE FORGAVE YOU! 🎉\nNo button was pressed ${noCount} times before she said YES!\nShe chose to forgive you 💖`;
+  sendEmail('YES 💖', details);
+}
+
+function sayMaybe() {
+  document.getElementById('ask-screen').style.display = 'none';
+  document.getElementById('maybe-screen').style.display = 'flex';
+  const details = `🤔 She said MAYBE...\nNo button was pressed ${noCount} times before she chose Maybe.\nKeep being sweet! 💛`;
+  sendEmail('MAYBE 🤔', details);
+}
+
+function backToAsk() {
+  document.getElementById('maybe-screen').style.display = 'none';
+  document.getElementById('yes-screen').style.display = 'none';
+  document.getElementById('ask-screen').style.display = 'block';
+  finalOutcomeSent = false;
+}
+
+// Update badge with live status
+const badge = document.getElementById('resultBadge');
+setInterval(() => {
+  if (!finalOutcomeSent) {
+    badge.textContent = `💗 Tracking...`;
   }
-  
-  function backToAskFromMaybe() {
-    maybeScreen.style.display = 'none';
-    askScreen.style.display = 'block';
-    // keep outcome maybe but we didn't convert to yes yet
-    updateAnalytics({ maybeConvertedToYes: false });
-  }
-  
-  function convertMaybeToYes() {
-    // from maybe screen -> yes
-    if (analytics.finalOutcome !== 'yes') {
-      updateAnalytics({ finalOutcome: 'yes', maybeConvertedToYes: true });
-    }
-    if (isRunaway && noBtn) noBtn.style.display = 'none';
-    maybeScreen.style.display = 'none';
-    askScreen.style.display = 'none';
-    yesScreen.style.display = 'flex';
-    spawnHearts(45, true);
-    updateLiveBadgeText();
-  }
-  
-  // Attach event listeners
-  document.getElementById('yesMainBtn').addEventListener('click', sayYes);
-  document.getElementById('maybeBtn1').addEventListener('click', sayMaybe);
-  document.getElementById('maybeBtn2').addEventListener('click', sayMaybe);
-  noBtn.addEventListener('click', sayNo);
-  document.getElementById('backToYesFromMaybe').addEventListener('click', convertMaybeToYes);
-  document.getElementById('backToAskFromMaybe').addEventListener('click', backToAskFromMaybe);
-  
-  // initialize dots & UI
-  buildDots();
-  updateStageUI();
-  updateLiveBadgeText();
-  
-  // Additional: secret results view (for you, the sender)
-  // if URL contains ?view=stats OR you triple-click the floating badge
-  function showResultsModal() {
-    const data = getStoredAnalytics();
-    if (!data) {
-      alert("No forgiveness data recorded yet. Ask your friend to interact first!");
-      return;
-    }
-    const outcomeEmoji = data.finalOutcome === 'yes' ? '💖 YES (forgiven!)' : (data.finalOutcome === 'maybe' ? '🤔 MAYBE (still hopeful)' : '⏳ Still playing');
-    const msg = `📊 FORGIVENESS REPORT 📊\n\n` +
-                `🎯 Final decision: ${outcomeEmoji}\n` +
-                `🔁 No button clicks: ${data.noPressCount}\n` +
-                `📈 Max stage reached: ${data.maxStageReached}/${stages.length-1}\n` +
-                `🤗 Maybe ever selected? ${data.maybeSelected ? 'Yes' : 'No'}\n` +
-                `🔄 Maybe → Yes later? ${data.maybeConvertedToYes ? 'Yes! 🎉' : 'No'}\n` +
-                `🕒 Last activity: ${new Date(data.lastActivity).toLocaleString()}\n` +
-                `🆔 Session: ${data.sessionId}\n\n` +
-                `❤️ You can copy this and see their journey!`;
-    alert(msg);
-  }
-  
-  // triple-tap on badge to reveal results (or long press)
-  let tapCount = 0;
-  const badgeDiv = document.getElementById('liveResultBadge');
-  badgeDiv.addEventListener('click', (e) => {
-    tapCount++;
-    setTimeout(() => { tapCount = 0; }, 500);
-    if (tapCount === 3) {
-      showResultsModal();
-      tapCount = 0;
-    }
-  });
-  
-  // also if URL has ?view=stats, auto show on load (only once)
-  if (window.location.search.includes('view=stats') || window.location.search.includes('results=true')) {
-    setTimeout(() => { showResultsModal(); }, 800);
-  }
-  
-  // small cosmetic: spawn hearts init
-  setInterval(() => { spawnHearts(1, false); }, 2800);
-  spawnHearts(18, false);
-  
-  // ensure no button remains accessible on resize
-  window.addEventListener('resize', () => {
-    if (isRunaway && noBtn.style.position === 'fixed') {
-      const pos = randomPos();
-      noBtn.style.left = pos.x + 'px';
-      noBtn.style.top = pos.y + 'px';
-    }
-  });
-  
-  // final edge: if they close maybe without yes, but we persist data good.
-  console.log("❤️ Forgiveness page ready — results stored in localStorage. Use ?view=stats or triple-tap the bottom badge to see analytics!");
+}, 1000);
 </script>
 </body>
 </html>
